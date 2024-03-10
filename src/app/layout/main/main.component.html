@@ -1,19 +1,52 @@
 <div class="my-16">
   <div class="flex justify-between items-center flex-wrap">
-    <h1 class="text-xl font-sans font-bold">Scan Now!</h1>
+    <h1 class="text-3xl font-sans font-bold">Scan Now!</h1>
   </div>
   <div>
-    <div class="grid lg:grid-cols-2 grid-cols-1 gap-10  items-center h-2/3 mt-8 mb-4">
+    <div class="grid lg:grid-cols-2 grid-cols-1 gap-10 h-2/3 mt-8 mb-4">
       <div>
-        <app-file-input [extensions]="['PNG', 'JPG']" (filesSelected)="images = $event" />
-        <p class="mt-4 text-gray-500">Upload a brain scan image to start the segmentation process.</p>
+        <div>
+          <div class="flex items-center justify-center w-full relative">
+            <label [for]="_id"
+              class="flex flex-col items-center justify-center w-full h-72 border-2 border-gray-300 border-dashed rounded-lg cursor-pointe hover:bg-gray-100 text-gray-500">
+              <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                <i class="ri-upload-cloud-2-line ri-3x"></i>
+                <p class="mb-2 text-sm">
+                  <span class="font-semibold">Click to upload</span> or drag and drop
+                </p>
+                <p class="text-xs">{{ extensions.join(", ") }}</p>
+              </div>
+              <input [id]="_id" type="file"
+                class="absolute top-0 left-0 bottom-0 right-0 w-full h-full opacity-0 cursor-pointer" [multiple]="multiple"
+                (change)="onFilesSelected($event)" />
+            </label>
+          </div>
+          <p class="mt-4 text-gray-500">Upload a brain scan image to start the segmentation process.</p>
+
+          <div class="flex flex-wrap my-2">
+            @for (url of urls; track url; let index = $index) {
+            <div class="hover:bg-gray-100 w-full rounded-lg border-gray-300 border relative">
+              <span class="inline-flex items-center px-2 py-1 me-2 ">
+                <img [src]="url" class="lg:h-96 md:64 object-cover rounded" />
+                <button type="button" class="absolute top-1 right-2 inline-flex items-center p-1 ms-2 text-sm text-gray-500 bg-transparent"
+                  (click)="removeFiles(index)">
+                  <i class="ri-close-line text-3xl"></i>
+                  <span class="sr-only">Remove badge</span>
+                </button>
+              </span>
+            </div>
+            }
+          </div>
+        </div>
+
       </div>
       <div class="flex flex-col items-center">
         <img class="h-96 w-auto" src="assets/brain_chemistry.png" alt="brain">
         <div>
-          <h1>
+          <div class="flex flex-col items-center">
+            <app-button class="my-2" (click)="scan()">Scan</app-button>
             <span class="text-2xl font-bold">The Result :</span>
-          </h1>
+          </div>
         </div>
       </div>
     </div>

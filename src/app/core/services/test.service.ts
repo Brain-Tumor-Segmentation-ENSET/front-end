@@ -12,7 +12,7 @@ export class TestService {
   getTest() {
     return this.http.get('https://localhost:5000/');
   }
-  doTest(test: Test) {
-    return this.http.post('https://localhost:5000/segment', test);
+  doTest(formData: FormData) {
+    return this.http.post('http://localhost:5000/upload', formData);
   }
 }
