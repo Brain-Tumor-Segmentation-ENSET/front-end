@@ -1,1 +1,21 @@
-<p>main works!</p>
+<div class="my-16">
+  <div class="flex justify-between items-center flex-wrap">
+    <h1 class="text-xl font-sans font-bold">Scan Now!</h1>
+  </div>
+  <div>
+    <div class="grid lg:grid-cols-2 grid-cols-1 gap-10  items-center h-2/3 mt-8 mb-4">
+      <div>
+        <app-file-input [extensions]="['PNG', 'JPG']" (filesSelected)="images = $event" />
+        <p class="mt-4 text-gray-500">Upload a brain scan image to start the segmentation process.</p>
+      </div>
+      <div class="flex flex-col items-center">
+        <img class="h-96 w-auto" src="assets/brain_chemistry.png" alt="brain">
+        <div>
+          <h1>
+            <span class="text-2xl font-bold">The Result :</span>
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
