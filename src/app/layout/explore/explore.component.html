@@ -1,0 +1,66 @@
+<div class="my-16">
+  <div>
+    <div class="grid lg:grid-cols-2 grid-cols-1 gap-8 h-2/3 mt-8 mb-4">
+      <div class="flex flex-col mx-4 my-8">
+        <h1 class="text-6xl font-sans font-bold my-4">
+          Welcome to Brain Tumor Segmentation
+        </h1>
+        <p class="mt-4 font-sans text-lg mx-2">
+          Empowering Precision Medicine with AI
+        </p>
+        <p class="font-sans text-lg mx-2">
+          Upload MRI Images & Segment Tumors Effortlessly
+        </p>
+        <p class="font-sans text-lg mx-2">
+          Get Accurate Results in Minutes
+        </p>
+        <app-button class="mt-4 mx-1" (click)="start()">Get Started</app-button>
+
+      </div>
+      <div class="flex flex-col items-start w-auto mx-20">
+        <img src="assets/brain_chemistry.png" alt="brain">
+      </div>
+    </div>
+    <div class="inline-flex items-center justify-center w-full my-10">
+      <hr class="w-64 h-1 my-8 bg-orange-700 border-0 rounded dark:bg-gray-700">
+      <div class="absolute px-4 -translate-x-1/2 bg-white left-1/2 dark:bg-gray-900">
+        <svg aria-hidden="true" class="w-5 h-5 text-gray-700 dark:text-gray-300" viewBox="0 0 24 27" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"
+            fill="currentColor" />
+        </svg>
+      </div>
+      <!-- section 2  -->
+
+    </div>
+
+    <div class="grid lg:grid-cols-2 grid-cols-1 gap-8 h-2/3 my-8">
+      <h1 class="text-4xl font-sans font-bold">Brain tumours</h1>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mb-8 items-stretch">
+      @for(tumor of tumors; track tumor){
+      <div class="flex flex-wrap space-x-0 card max-w-sm bg-white border border-gray-200 rounded-lg shadow">
+        <a href="#">
+          <img class="rounded-t-lg w-full h-full object-cover" [src]="tumor.image" [alt]="tumor.name" />
+        </a>
+        <div class="p-5">
+          <a href="#">
+            <h5 class="mb-4 text-2xl font-sans font-bold tracking-tight text-gray-900 ">{{tumor.name}}</h5>
+          </a>
+          <p class="mb-3 font-sans text-gray-700 h-[150px]">{{tumor.desc}}</p>
+          <br><a (click)="showDetails(tumor)"
+            class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-orange-800 rounded-lg hover:bg-orange-600 focus:ring-4 focus:outline-none focus:ring-orange-800">
+            Read more
+            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              fill="none" viewBox="0 0 14 10">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M1 5h12m0 0L9 1m4 4L9 9" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      }
+    </div>
+  </div>

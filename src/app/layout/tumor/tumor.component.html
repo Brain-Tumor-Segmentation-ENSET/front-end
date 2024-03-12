@@ -1,0 +1,30 @@
+@if (tumor) {
+<div class="my-16">
+  <div>
+    <div class="mb-4">
+      <div class="relative mb-4">
+        <img class="w-full rounded-lg h-[500px] object-cover border border-gray-300" [src]="tumor.image" alt="" />
+      </div>
+    </div>
+  </div>
+  <div>
+    <h5 class="text-3xl font-semibold mb-4">{{ tumor.name }}</h5>
+    <div class="border-t-2 border-gray-300 mb-4"></div>
+    <p class="text-black text-base mb-4 px-2">{{ tumor.def }}</p>
+    <div class="border-t-2 border-gray-300 mb-4"></div>
+
+  </div>
+  <div>
+    <h5 class="text-3xl font-semibold my-8 ">Symptoms of {{tumor. name}}</h5>
+    <p class="text-black text-base mb-4 px-2">{{ tumor.symptoms }}</p>
+    <div class="border-t-2 border-gray-300 mb-4"></div>
+  </div>
+  <div>
+    <h5 class="text-3xl font-semibold mb-4">Treatment for {{tumor. name}}</h5>
+    <p class="text-black text-base mb-4 px-2">{{ tumor.treatment }}</p>
+  </div>
+
+</div>
+} @else {
+<app-not-found></app-not-found>
+}
