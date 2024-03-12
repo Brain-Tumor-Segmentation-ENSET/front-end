@@ -71,9 +71,6 @@ export class MainComponent {
     formData.append('image', file);
     this.service.doTest(formData).subscribe((response) => {
       this.result = response;
-      console.log(response);
-      console.log(this.result);  
-      console.log('Image uploaded successfully');
     });
   }
 }

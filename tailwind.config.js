@@ -9,6 +9,9 @@ module.exports = {
       fontFamily: {
         sans: ["Google Sans", "sans-serif"],
       },
+      colors: {
+        'red': '#FF0000',
+      },
     },
     container: {
       center: true,
