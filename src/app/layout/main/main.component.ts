@@ -3,6 +3,7 @@ import { FileInputComponent } from '../../components/file-input/file-input.compo
 import { ButtonComponent } from '../../components/button/button.component';
 import { TestService } from '../../core/services/test.service';
 import { ToastrService } from "ngx-toastr";
+import { Test } from '../../core/models/test';
 
 @Component({
   selector: 'app-main',
@@ -14,7 +15,12 @@ import { ToastrService } from "ngx-toastr";
 export class MainComponent {
   images: File[] = [];
   _id: string = "";
-
+  result: Test = {
+    message: "",
+    result: "",
+    predicted_class: ""
+  }
+  status = "";
   @Input() extensions: string[] = [];
   @Input() multiple: boolean = false;
 
@@ -64,6 +70,9 @@ export class MainComponent {
     const formData = new FormData();
     formData.append('image', file);
     this.service.doTest(formData).subscribe((response) => {
+      this.result = response;
+      console.log(response);
+      console.log(this.result);  
       console.log('Image uploaded successfully');
     });
   }
