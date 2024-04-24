@@ -20,4 +20,4 @@ To get more help on the Angular CLI, use `ng help` or visit the [Angular CLI Ove
 
 # Test the Deployed Frontend
 
-Explore the deployed frontend [here : Brain TS N7](https://braints-n7.netlify.app/explore).
+Explore the deployed frontend [here : Brain TS N7](https://braints-n7.netlify.app).
